@@ -1,36 +1,50 @@
+let num;
 let maxNum;
 let guessForm;
+let chosenNum;
+let choices= [];
 
 // let validInput = false;
 let message = document.getElementById("message");
+let startBtn = document.getElementById("start");
 
 function selectMax() {
     guessForm = document.getElementById("guessForm");
     maxNum = document.getElementById("maxNum").value;
-    console.log(Number(maxNum));
+    chosenNum = Math.ceil(Number(maxNum));
     
-    if(Number(maxNum) != NaN && maxNum > 1) {
+    if(chosenNum != NaN && maxNum > 1) {
+        message.innerHTML = `Your chosen maximum number is ${chosenNum} (Your number was rounded up).`;
+        num = Math.floor(Math.random() * chosenNum) + 1;
+
         guessForm.classList = "";
+        startBtn.classList = "hide";
     } else {
         message.innerHTML = "You need to input a number greater than 1!";
     }
 }
 
 function do_guess() {
-    let num = Math.floor(Math.random() * maxNum) + 1;
 
     let guess = Number(document.getElementById("guess").value);
 
-    if(guess == num) {
-        message.innerHTML = "You got it!";
-    }
-    else if (guess > num) {
-        message.innerHTML = "No, try a lower number.";
-    }
-    else {
-        message.innerHTML = "No, try a higher number.";
+    if(guess != NaN && guess >= 1 && guess <= chosenNum && !choices.includes(guess)) {
+        if(guess == num) {
+            choices.push(guess);
+            message.innerHTML = `You got it in ${choices.length} tries! Your choices were ${choices.toString()}`;
+        }
+        else if (guess > num) {
+            message.innerHTML = "No, try a lower number.";
+            choices.push(guess);
+        }
+        else {
+            message.innerHTML = "No, try a higher number.";
+            choices.push(guess);
+        }
+    } else {
+        message.innerHTML = `You must choose a number between 1 and ${chosenNum}. Please to not duplicate guesses.`
     }
 }
 
-document.getElementById("start").addEventListener("click", selectMax);
+startBtn.addEventListener("click", selectMax);
 
