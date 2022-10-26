@@ -1,33 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Higher - Lower</title>
-  </head>
-  <body>
-    <div class="container">
-        <h1>Higher Lower</h1>
-        <p>Guess a number between 1 and 20</p>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <form>
-                    <div class="form-group">
-                        <label>Your guess:</label>
-                        <input type="text" id="guess" class="form-control">
-                    </div>
-                    <button type="button" class="btn btn-primary" onclick="do_guess()">Guess</button>
-                </form>
-            </div>
-        </div>
-        <p id="message"></p>
-    </div>	
-    <script src="higherlower.js"></script>
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  </body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>Higher - Lower</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Higher Lower</h1>
+    <p>Guess a number!</p>
+
+    <p id="message"></p>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <form>
+          <div class="form-group">
+            <label>Please select a maximum number.</label>
+            <input type="text" id="maxNum" class="form-control">
+          </div>
+          <button type="button" id="start" class="btn btn-primary">Start Game</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <form class="hide" id="guessForm">
+          <div class="form-group">
+            <label>Your guess:</label>
+            <input type="text" id="guess" class="form-control">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="do_guess()">Guess</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="higherlower.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
 </html>
